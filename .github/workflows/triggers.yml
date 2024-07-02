@@ -17,7 +17,7 @@ on:
       alerta:
         description: 'nivel'
         required: true
-        default: medio
+        default: 'medio'
         type: choice
         options:
         - bajo
