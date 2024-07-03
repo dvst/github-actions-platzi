@@ -1,0 +1,11 @@
+name: workflow variables
+run-name: workflow variable
+on: push
+env:
+  VAR_NIVEL_WORKFLOW: "saludos workflow"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ env.VAR_NIVEL_WORKFLOW }}
+  
