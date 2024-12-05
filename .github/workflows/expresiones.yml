@@ -1,0 +1,33 @@
+name: expresiones
+run-name: Workflow expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment name'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - 'dev'
+        - 'stage'
+        - 'prod'
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.environment == 'dev' }}
+    steps:
+      - run: echo "Development environemnt"
+
+  stage:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.environment == 'stage' }}
+    steps:
+      - run: echo "Stage environemnt"
+
+  production:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.environment == 'prod' }}
+    steps:
+      - run: echo "Production environemnt"
